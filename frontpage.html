@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Sunday 22 November 2026 — The Day in Four Acts</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1024px;height:1024px;background:#f6f1e3;font-family:Arial,Helvetica,sans-serif;color:#1b1b2e;overflow:hidden}
+  .serif{font-family:Georgia,'Times New Roman',serif}
+  /* ---------- masthead ---------- */
+  .mast{background:#16162b;color:#f6f1e3;padding:6px 18px 5px;display:flex;justify-content:space-between;align-items:flex-end}
+  .mast h1{font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:.95;letter-spacing:.5px}
+  .mast h1 .gold{color:#f2b705}
+  .mast .sub{font-size:11px;letter-spacing:2.2px;color:#f2b705;margin-top:5px;font-weight:bold}
+  .mast .sub2{font-size:9.5px;letter-spacing:1px;color:#c9c9d6;margin-top:3px}
+  .legend{text-align:right;font-size:9px;line-height:1.5;color:#e8e8f0}
+  .legend b{color:#fff}
+  .tag{display:inline-block;padding:1px 5px;border-radius:2px;font-size:8.5px;font-weight:bold;color:#fff}
+  .tg-c{background:#1e7d32}.tg-r{background:#e65100}.tg-cl{background:#616161}
+  /* ---------- stat strip ---------- */
+  .stats{background:#fff;border-bottom:3px solid #16162b;display:flex;padding:5px 10px 4px}
+  .stats .lbl{font-size:9px;letter-spacing:2px;color:#8a8a9a;font-weight:bold;align-self:center;width:118px;line-height:1.4}
+  .stat{flex:1;text-align:center;border-left:1px solid #e0dcc8;padding:0 4px}
+  .stat .n{font-family:Georgia,serif;font-size:21px;font-weight:bold;line-height:1;color:#b3001b}
+  .stat .n.bl{color:#1e2a5a}.stat .n.gd{color:#8a6d00}
+  .stat .d{font-size:9px;color:#44445a;margin-top:2px;line-height:1.25}
+  /* ---------- UTC spine ---------- */
+  .spine{background:#16162b;color:#f2b705;display:flex;align-items:center;padding:2px 18px;font-size:9px;letter-spacing:1.5px}
+  .spine .ticks{flex:1;display:flex;justify-content:space-between;color:#e8e8f0;font-size:9px}
+  .spine .ticks b{color:#f2b705}
+  /* ---------- acts ---------- */
+  .act{padding:4px 12px 4px;position:relative}
+  .acthead{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .acthead .an{font-family:Georgia,serif;font-size:16px;font-weight:bold;letter-spacing:1px}
+  .acthead .tm{font-size:10px;font-weight:bold;letter-spacing:1.5px;opacity:.85}
+  .acthead .sm{font-family:Georgia,serif;font-style:italic;font-size:12px;opacity:.9}
+  .cells{display:flex;gap:6px}
+  .cell{flex:1;border-radius:5px;padding:5px 6px 4px;min-width:0}
+  .cell .motif{height:24px;display:flex;align-items:center;justify-content:center}
+  .cell .motif svg{display:block;height:24px;width:auto}
+  .cell .num{font-family:Georgia,serif;font-size:18px;font-weight:bold;line-height:1.05;text-align:center}
+  .cell .num.sm{font-size:14px}
+  .cell .lab{font-size:8.5px;line-height:1.25;text-align:center;margin-top:2px;font-weight:bold}
+  .cell .sub2{font-size:7.5px;line-height:1.2;text-align:center;opacity:.85;margin-top:1px}
+  .cell .tagrow{text-align:center;margin-top:2px}
+  /* Act I — night navy */
+  .a1{background:#1e2a5a;color:#fff}
+  .a1 .cell{background:#2c3d7d}
+  .a1 .num{color:#ffd54d}
+  /* Act II — morning gold */
+  .a2{background:#f0b429;color:#241d05}
+  .a2 .cell{background:#f8cd5f}
+  .a2 .num{color:#7a0e1a}
+  .a2 .acthead .sm{color:#4a3500}
+  /* Act III — afternoon blue/green */
+  .a3{background:#dceef7;color:#10243e}
+  .a3 .cell{background:#ffffff;border-top:4px solid #2e7d32}
+  .a3 .num{color:#0b4d6e}
+  .a3 .row2{margin-top:6px}
+  .a3 .sport{border-top:none;color:#fff;text-align:center;padding:3px 2px 2px}
+  .a3 .sport .team{font-size:9.5px;font-weight:bold;letter-spacing:.5px}
+  .a3 .sport .score{font-family:Georgia,serif;font-size:18px;font-weight:bold;line-height:1.05}
+  .a3 .sport .vn{font-size:8.5px;opacity:.9}
+  .a3 .sport.sp-liv{background:#c8102e}.a3 .sport.sp-lee{background:#1f3a93}.a3 .sport.sp-ars{background:#ef0107}.a3 .sport.sp-mci{background:#6cabdd}.a3 .sport.sp-ata{background:#1a1a2e}
+  /* Act IV — evening crimson */
+  .a4{background:#7a0e1a;color:#fff}
+  .a4 .hero{flex:0 0 600px;background:#c8102e;border-radius:6px;padding:6px 12px 5px;display:flex;gap:10px}
+  .a4 .hero .htxt{flex:1}
+  .a4 .hero .no{font-family:Georgia,serif;font-size:40px;font-weight:bold;line-height:.95;letter-spacing:1px}
+  .a4 .hero .hle{font-size:11px;line-height:1.35;margin-top:4px;font-weight:bold}
+  .a4 .hero .hnum{display:flex;gap:14px;margin-top:4px}
+  .a4 .hero .hnum div{text-align:center}
+  .a4 .hero .hnum .n{font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#ffd54d}
+  .a4 .hero .hnum .d{font-size:8.5px;line-height:1.2}
+  .a4 .hero .hfoot{font-size:9.5px;font-style:italic;margin-top:3px;color:#ffe1e1}
+  .a4 .evegrid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+  .a4 .evecell{background:#9d1226;border-radius:5px;padding:4px 6px 3px}
+  .a4 .evecell .num{font-family:Georgia,serif;font-size:15px;font-weight:bold;color:#ffd54d;line-height:1.05}
+  .a4 .evecell .lab{font-size:9px;font-weight:bold;line-height:1.25;margin-top:2px}
+  .a4 .evecell .sub2{font-size:8px;line-height:1.25;opacity:.9;margin-top:1px}
+  /* ---------- map strip ---------- */
+  .mapstrip{background:#10243e;color:#e8e8f0;display:flex;gap:14px;padding:4px 14px 4px;align-items:center}
+  .mapstrip .mt{font-size:10px;letter-spacing:1.5px;font-weight:bold;color:#f2b705;line-height:1.4}
+  .mapstrip .mt span{color:#e8e8f0;font-weight:normal;letter-spacing:.5px;font-size:9px}
+  .mapstrip .pins{font-size:9px;line-height:1.5;color:#c9d6e8}
+  .mapstrip .pins b{color:#fff}
+  /* ---------- date check + footer ---------- */
+  .datecheck{border:2px solid #b3001b;background:#fff;padding:3px 12px;font-size:9px;line-height:1.4;color:#1b1b2e}
+  .datecheck b{color:#b3001b;letter-spacing:1px}
+  .foot{display:flex;justify-content:space-between;padding:3px 14px 0;font-size:8.5px;color:#55556a}
+</style></head><body>
+<!-- MASTHEAD -->
+<div class="mast">
+  <div>
+    <h1>SUNDAY <span class="gold">22 NOVEMBER</span> 2026</h1>
+    <div class="sub">THE DAY IN FOUR ACTS &middot; 34 STORIES &middot; EVERY ONE DATED SUNDAY 22 NOVEMBER 2026</div>
+    <div class="sub2">COP31 collapses &mdash; the evening the deal died &middot; 186 drones over Ukraine in the night &middot; the afternoon the world played</div>
+  </div>
+  <div class="legend"><b>HOW SURE</b><br>
+    <span class="tag tg-c">CONFIRMED</span> 2+ sources<br>
+    <span class="tag tg-r">REPORTED</span> announced / claimed<br>
+    <span class="tag tg-cl">CLAIM</span> unconfirmed
+  </div>
+</div>
+<!-- STAT STRIP -->
+<div class="stats">
+  <div class="lbl">THE DAY<br>AT A GLANCE</div>
+  <div class="stat"><div class="n">186</div><div class="d">drones over Ukraine<br>in the night</div></div>
+  <div class="stat"><div class="n">0</div><div class="d">fossil-fuel mentions<br>in the COP31 draft</div></div>
+  <div class="stat"><div class="n bl">34</div><div class="d">unaccounted<br>in the Cikande fire</div></div>
+  <div class="stat"><div class="n gd">720/9</div><div class="d">India&rsquo;s record Test<br>total in New Zealand</div></div>
+  <div class="stat"><div class="n">98.79%</div><div class="d">Hong Kong turnout &mdash;<br>final, 5,640 of 5,709</div></div>
+</div>
+<!-- UTC SPINE -->
+<div class="spine">THE DAY IN UTC&nbsp;
+  <div class="ticks"><span><b>00</b> night</span><span><b>04</b></span><span><b>08</b> morning</span><span><b>12</b></span><span><b>16</b> afternoon</span><span><b>20</b> evening</span><span><b>24</b></span></div>
+</div>
+<!-- ACT I — OVERNIGHT -->
+<div class="act a1">
+  <div class="acthead"><span class="an">ACT I &middot; OVERNIGHT</span><span class="tm">00:00&ndash;06:00 UTC</span><span class="sm">&ldquo;The night the war came back.&rdquo;</span></div>
+  <div class="cells">
+    <div class="cell">
+      <div class="motif"><svg width="72" height="34" viewBox="0 0 72 34"><rect x="0" y="0" width="72" height="34" fill="#16224e"/><circle cx="10" cy="6" r="1" fill="#fff"/><circle cx="26" cy="4" r="1" fill="#fff"/><circle cx="44" cy="7" r="1" fill="#fff"/><circle cx="62" cy="5" r="1" fill="#fff"/><path d="M14 12 L18 16 L22 12 L18 8 Z" fill="#ffd54d"/><path d="M34 10 L38 14 L42 10 L38 6 Z" fill="#ffd54d"/><path d="M54 13 L58 17 L62 13 L58 9 Z" fill="#ffd54d"/><rect x="30" y="20" width="12" height="14" fill="#f2b705"/><rect x="33" y="23" width="2" height="2" fill="#16224e"/><rect x="37" y="23" width="2" height="2" fill="#16224e"/><rect x="33" y="27" width="2" height="2" fill="#16224e"/><rect x="37" y="27" width="2" height="2" fill="#16224e"/></svg></div>
+      <div class="num">186</div>
+      <div class="lab">drones over Ukraine</div>
+      <div class="sub2">Dymer 3 killed, 11 trapped; 161 downed.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="72" height="34" viewBox="0 0 72 34"><rect x="0" y="0" width="72" height="34" fill="#16224e"/><path d="M8 28 Q36 4 64 10" stroke="#ff8a65" stroke-width="2" fill="none"/><circle cx="60" cy="9" r="3" fill="#ff5722"/><path d="M28 30 L28 20 Q36 14 44 20 L44 30 Z" fill="#f2b705"/><rect x="34" y="10" width="4" height="8" fill="#f2b705"/><circle cx="36" cy="8" r="2.5" fill="#ffd54d"/></svg></div>
+      <div class="num">01:42</div>
+      <div class="lab">missile toward Mecca stopped</div>
+      <div class="sub2">Coalition intercepts Houthi missile.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="72" height="34" viewBox="0 0 72 34"><rect x="0" y="0" width="72" height="34" fill="#16224e"/><rect x="24" y="12" width="24" height="18" fill="#8d9bbf"/><rect x="28" y="16" width="4" height="4" fill="#16224e"/><rect x="36" y="16" width="4" height="4" fill="#16224e"/><rect x="28" y="22" width="4" height="4" fill="#16224e"/><rect x="36" y="22" width="4" height="4" fill="#16224e"/><path d="M52 8 L56 12 L60 8 L56 4 Z" fill="#ffd54d"/><path d="M14 10 L18 14 L22 10 L18 6 Z" fill="#ffd54d"/></svg></div>
+      <div class="num">4</div>
+      <div class="lab">killed as drones hit UN building</div>
+      <div class="sub2">Khartoum, Sudan &mdash; 9 injured, ~02:00&ndash;04:30.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="72" height="34" viewBox="0 0 72 34"><rect x="0" y="0" width="72" height="34" fill="#16224e"/><rect x="18" y="14" width="36" height="16" fill="#5c6fa8"/><rect x="22" y="18" width="6" height="6" fill="#ffd54d"/><rect x="32" y="18" width="6" height="6" fill="#ffd54d"/><rect x="42" y="18" width="6" height="6" fill="#ffd54d"/><path d="M30 14 L33 6 L36 14 Z" fill="#ff7043"/><path d="M40 14 L43 8 L46 14 Z" fill="#ff8a65"/></svg></div>
+      <div class="num">34</div>
+      <div class="lab">unaccounted in factory fire</div>
+      <div class="sub2">3 killed, 24 body bags; search goes on.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="72" height="34" viewBox="0 0 72 34"><rect x="0" y="0" width="72" height="34" fill="#16224e"/><rect x="6" y="6" width="20" height="14" fill="#fff"/><rect x="6" y="6" width="5" height="5" fill="#16224e"/><rect x="16" y="6" width="5" height="5" fill="#16224e"/><rect x="11" y="11" width="5" height="5" fill="#16224e"/><rect x="21" y="11" width="5" height="5" fill="#16224e"/><rect x="6" y="16" width="5" height="4" fill="#16224e"/><rect x="16" y="16" width="5" height="4" fill="#16224e"/><path d="M34 26 L48 26 L54 18 L66 18" stroke="#ffd54d" stroke-width="3" fill="none"/><circle cx="38" cy="28" r="3" fill="#fff"/><circle cx="52" cy="28" r="3" fill="#fff"/></svg></div>
+      <div class="num">+0.639s</div>
+      <div class="lab">Verstappen wins Las Vegas GP</div>
+      <div class="sub2">Finished 05:31 UTC Sunday; 75th win.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+  </div>
+</div>
+<!-- ACT II — MORNING -->
+<div class="act a2">
+  <div class="acthead"><span class="an">ACT II &middot; MORNING</span><span class="tm">06:00&ndash;12:00 UTC</span><span class="sm">&ldquo;The morning of demands.&rdquo;</span></div>
+  <div class="cells">
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><rect x="4" y="6" width="22" height="14" rx="6" fill="#fff"/><rect x="34" y="10" width="22" height="14" rx="6" fill="#7a0e1a"/><circle cx="12" cy="13" r="1.5" fill="#7a0e1a"/><circle cx="18" cy="13" r="1.5" fill="#7a0e1a"/><circle cx="42" cy="17" r="1.5" fill="#fff"/><circle cx="48" cy="17" r="1.5" fill="#fff"/></svg></div>
+      <div class="num">TALKS</div>
+      <div class="lab">Hamas seeks emergency talks</div>
+      <div class="sub2">Fri 7, Sat 3 aid workers; Sun talks call.</div>
+      <div class="tagrow"><span class="tag tg-r">REPORTED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><circle cx="30" cy="15" r="12" fill="#fff"/><circle cx="30" cy="15" r="9" fill="none" stroke="#7a0e1a" stroke-width="1.5"/><path d="M30 6 L30 24 M21 15 L39 15" stroke="#7a0e1a" stroke-width="1.5"/></svg></div>
+      <div class="num sm">UNSC</div>
+      <div class="lab">Bahrain demands UN action</div>
+      <div class="sub2">IRGC radar-hit claim unconfirmed.</div>
+      <div class="tagrow"><span class="tag tg-cl">CLAIM</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><path d="M6 22 Q15 14 30 20 Q45 26 54 18 L54 26 L6 26 Z" fill="#0b4d6e"/><path d="M20 18 L40 18 L36 12 L24 12 Z" fill="#7a0e1a"/><rect x="28" y="6" width="4" height="8" fill="#7a0e1a"/></svg></div>
+      <div class="num">24</div>
+      <div class="lab">dead, 24 rescued in boat capsize</div>
+      <div class="sub2">Nigeria, 07:34 UTC &mdash; not 26.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><circle cx="30" cy="13" r="8" fill="#ffd54d"/><rect x="28" y="19" width="4" height="7" fill="#8a6d00"/><path d="M24 13 L36 13 M30 7 L30 19" stroke="#7a0e1a" stroke-width="2"/><path d="M22 5 L38 5" stroke="#7a0e1a" stroke-width="2"/></svg></div>
+      <div class="num">2h</div>
+      <div class="lab">daily power cuts begin in Iran</div>
+      <div class="sub2">Fuel shortages + war damage.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><path d="M8 20 L22 20 L26 12 L40 12 L52 20 L52 24 L8 24 Z" fill="#0b4d6e"/><rect x="28" y="4" width="4" height="8" fill="#0b4d6e"/><path d="M30 16 L34 20 L40 12" stroke="#2e7d32" stroke-width="2.5" fill="none"/></svg></div>
+      <div class="num sm">FIRE OUT</div>
+      <div class="lab">Sparta II listing, tow under way</div>
+      <div class="sub2">No leak; fire no longer visible.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><path d="M4 20 L12 8 L20 20 L28 10 L36 20 L44 8 L52 20" stroke="#c8102e" stroke-width="2" fill="none"/><path d="M4 24 L56 24" stroke="#7a0e1a" stroke-width="1.5"/></svg></div>
+      <div class="num sm">STABLE</div>
+      <div class="lab">Bolsonaro in ICU, Sunday bulletin</div>
+      <div class="sub2">Conscious, breathing on his own.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="60" height="30" viewBox="0 0 60 30"><circle cx="26" cy="14" r="9" fill="none" stroke="#7a0e1a" stroke-width="2.5"/><path d="M32 20 L42 28" stroke="#7a0e1a" stroke-width="2.5"/><path d="M22 10 L30 10 L26 18 Z" fill="#7a0e1a"/></svg></div>
+      <div class="num sm">PAUSED</div>
+      <div class="lab">Washington halts gun checks</div>
+      <div class="sub2">Breach was Friday; pause is Sunday.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+  </div>
+</div>
+<!-- ACT III — AFTERNOON -->
+<div class="act a3">
+  <div class="acthead"><span class="an">ACT III &middot; AFTERNOON</span><span class="tm">12:00&ndash;18:00 UTC</span><span class="sm">&ldquo;The afternoon the world played.&rdquo;</span></div>
+  <div class="cells">
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><rect x="14" y="10" width="28" height="16" fill="#0b4d6e"/><rect x="18" y="4" width="20" height="8" fill="#0b4d6e"/><rect x="26" y="6" width="4" height="6" fill="#fff"/><path d="M22 18 L34 18 L28 26 Z" fill="#fff"/></svg></div>
+      <div class="num">98.79%</div>
+      <div class="lab">Hong Kong turnout &mdash; FINAL</div>
+      <div class="sub2">5,640 of 5,709 voters.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><rect x="8" y="4" width="5" height="22" rx="2" fill="#8d6e63" transform="rotate(20 10 15)"/><circle cx="40" cy="20" r="7" fill="#c8102e"/><path d="M36 16 Q40 12 44 16" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+      <div class="num">720/9</div>
+      <div class="lab">India declare &mdash; record in NZ</div>
+      <div class="sub2">Lead 352; NZ 119/2 at stumps.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><circle cx="28" cy="15" r="11" fill="#ccff00"/><path d="M20 10 Q28 4 36 10 M20 20 Q28 26 36 20" stroke="#1b1b2e" stroke-width="1.5" fill="none"/></svg></div>
+      <div class="num sm">6&ndash;2, 7&ndash;6</div>
+      <div class="lab">Alcaraz beats Zverev</div>
+      <div class="sub2">First ATP Finals title, Turin.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><path d="M10 22 Q20 6 28 14 Q36 6 46 22 L40 22 Q36 16 32 20 Q28 24 24 20 Q20 16 16 22 Z" fill="#fff"/><circle cx="28" cy="8" r="3" fill="#f2b705"/></svg></div>
+      <div class="num">1,300</div>
+      <div class="lab">poor share lunch with the Pope</div>
+      <div class="sub2">World Day of the Poor, Vatican.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><rect x="22" y="4" width="12" height="22" rx="3" fill="#7a0e1a"/><rect x="25" y="8" width="6" height="6" fill="#fff"/><path d="M24 20 L32 12" stroke="#fff" stroke-width="2"/></svg></div>
+      <div class="num">17</div>
+      <div class="lab">dead in Manipur toxic liquor</div>
+      <div class="sub2">228 in hospital, 38 on dialysis.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><path d="M4 26 L16 8 L26 20 L34 6 L52 26 Z" fill="#5d4037"/><path d="M16 8 L20 14 L14 16 Z" fill="#fff"/><path d="M34 6 L38 14 L30 14 Z" fill="#fff"/></svg></div>
+      <div class="num sm">1 &middot; 16 &middot; 152</div>
+      <div class="lab">Peru quake toll update</div>
+      <div class="sub2">152 homes uninhabitable.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><path d="M28 4 L28 26 M28 10 L20 16 M28 10 L36 16 M28 16 L22 22 M28 16 L34 22" stroke="#2e7d32" stroke-width="2.5"/><rect x="26" y="24" width="4" height="4" fill="#2e7d32"/></svg></div>
+      <div class="num">83rd</div>
+      <div class="lab">Lebanon Independence Day</div>
+      <div class="sub2">Strikes in Ebba: 1 killed, 7 injured.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+    <div class="cell">
+      <div class="motif"><svg width="56" height="30" viewBox="0 0 56 30"><path d="M6 26 L18 8 L28 20 L36 6 L50 26 Z" fill="#0b4d6e"/><circle cx="18" cy="8" r="2" fill="#c8102e"/><rect x="40" y="10" width="12" height="8" fill="#c8102e"/><circle cx="46" cy="14" r="2.5" fill="#fff"/></svg></div>
+      <div class="num sm">DAY 1</div>
+      <div class="lab">Nepal PM visits India</div>
+      <div class="sub2">State visit begins; talks Monday.</div>
+      <div class="tagrow"><span class="tag tg-c">CONFIRMED</span></div>
+    </div>
+  </div>
+  <div class="cells row2">
+    <div class="cell sport sp-liv"><div class="team">LIVERPOOL</div><div class="score">4&ndash;0</div><div class="vn">Man Utd &middot; Anfield</div></div>
+    <div class="cell sport sp-lee"><div class="team">LEEDS</div><div class="score">4&ndash;1</div><div class="vn">Chelsea &middot; Bridge</div></div>
+    <div class="cell sport sp-ars"><div class="team">ARSENAL</div><div class="score">2&ndash;2</div><div class="vn">Newcastle</div></div>
+    <div class="cell sport sp-mci"><div class="team">MAN CITY</div><div class="score">1&ndash;1</div><div class="vn">Fulham</div></div>
+    <div class="cell sport sp-ata"><div class="team">ATALANTA</div><div class="score">4&ndash;4</div><div class="vn">Inter &middot; eight-goal draw</div></div>
+  </div>
+</div>
+<!-- ACT IV — EVENING -->
+<div class="act a4">
+  <div class="acthead"><span class="an">ACT IV &middot; EVENING</span><span class="tm">18:00&ndash;24:00 UTC</span><span class="sm">&ldquo;The evening the deal died.&rdquo;</span></div>
+  <div style="display:flex;gap:6px">
+    <div class="hero">
+      <div class="htxt">
+        <div class="no">NO DEAL.</div>
+        <div class="hle">COP31 collapses &mdash; the Antalya pact is rejected at the closing plenary. No deal adopted. First COP failure since Copenhagen 2009.</div>
+        <div class="hnum">
+          <div><div class="n">0</div><div class="d">fossil-fuel<br>mentions</div></div>
+          <div><div class="n">94</div><div class="d">paragraphs<br>in the draft</div></div>
+          <div><div class="n">44+ hrs</div><div class="d">overtime,<br>longest COP</div></div>
+        </div>
+        <div class="hfoot">The EU, UK, Norway and island states refused a text that named no fossil fuels.</div>
+      </div>
+      <div style="flex:0 0 150px;display:flex;align-items:center;justify-content:center">
+        <svg width="150" height="150" viewBox="0 0 150 150"><rect x="18" y="14" width="100" height="122" fill="#f6f1e3" transform="rotate(-4 68 75)"/><rect x="28" y="28" width="80" height="5" fill="#8a8a9a" transform="rotate(-4 68 75)"/><rect x="28" y="42" width="80" height="5" fill="#8a8a9a" transform="rotate(-4 68 75)"/><rect x="28" y="56" width="80" height="5" fill="#8a8a9a" transform="rotate(-4 68 75)"/><rect x="28" y="70" width="60" height="5" fill="#8a8a9a" transform="rotate(-4 68 75)"/><rect x="28" y="84" width="80" height="5" fill="#8a8a9a" transform="rotate(-4 68 75)"/><path d="M28 24 L118 128 M118 24 L28 128" stroke="#c8102e" stroke-width="10" transform="rotate(-4 68 75)"/><g transform="rotate(18 120 120)"><rect x="108" y="96" width="26" height="14" rx="3" fill="#5d4037"/><rect x="118" y="82" width="6" height="16" fill="#8d6e63"/><ellipse cx="121" cy="128" rx="16" ry="5" fill="#8d6e63"/></g><text x="68" y="148" font-size="8" fill="#ffd54d" text-anchor="middle" font-family="Arial">ANTALYA PACT &mdash; REJECTED</text></svg>
+      </div>
+    </div>
+    <div class="evegrid">
+      <div class="evecell"><div class="num">SEALED</div><div class="lab">Ramallah encircled Sunday evening</div><div class="sub2">West Bank, after a car-ramming.</div></div>
+      <div class="evecell"><div class="num">$61,271</div><div class="lab">Bitcoin back above $60,000</div><div class="sub2">Gold $3,514, worst week since March.</div></div>
+      <div class="evecell"><div class="num">PRESSURE</div><div class="lab">Trump favours economic squeeze</div><div class="sub2">Over renewed major strikes.</div></div>
+      <div class="evecell"><div class="num">HOPE</div><div class="lab">Christmas ceasefire hope reported</div><div class="sub2">Melania Trump, remarks Fri, reported Sun.</div></div>
+      <div class="evecell"><div class="num">PATH OPEN</div><div class="lab">Ghalibaf: path to end the conflict</div><div class="sub2">If the US accepts Iran&rsquo;s terms.</div></div>
+      <div class="evecell"><div class="num">MQ-1 &middot; MQ-9</div><div class="lab">IRGC claims 2 US drones in airspace</div><div class="sub2">Claim, unconfirmed.</div></div>
+      <div class="evecell"><div class="num">CONDEMNS</div><div class="lab">EU condemns Gaza ceasefire violations</div><div class="sub2">Sunday statement.</div></div>
+      <div class="evecell"><div class="num">CALM</div><div class="lab">Guasave tense calm after capture</div><div class="sub2">El Chapo Isidro taken Friday; no new Sunday news.</div></div>
+    </div>
+  </div>
+</div>
+<!-- MAP STRIP -->
+<div class="mapstrip">
+  <div class="mt">WHERE IT<br>HAPPENED<br><span>pins match<br>story numbers</span></div>
+  <svg width="210" height="105" viewBox="0 0 720 360" style="flex:0 0 auto;background:#0a1a33;border-radius:4px">
+    <g fill="#2e5d8a">
+      <path d="M24,48 L60,38 L100,34 L150,32 L175,18 L195,32 L215,36 L235,58 L250,85 L240,92 L220,95 L210,110 L200,118 L195,130 L180,140 L165,148 L180,152 L195,162 L200,160 L185,155 L170,148 L155,142 L140,132 L125,120 L112,100 L110,82 L95,68 L70,58 L45,62 Z"/>
+      <path d="M204,164 L216,156 L240,164 L260,180 L280,190 L290,196 L280,220 L264,236 L250,250 L236,260 L224,280 L220,288 L214,280 L216,260 L210,240 L204,216 L200,190 Z"/>
+      <path d="M340,108 L342,94 L356,84 L360,78 L370,74 L376,66 L380,62 L396,68 L402,70 L408,64 L416,60 L420,56 L424,40 L440,44 L450,60 L440,80 L430,90 L420,96 L416,100 L404,104 L396,100 L384,96 L376,92 L366,96 L358,104 L348,108 Z"/>
+      <path d="M326,150 L330,130 L340,118 L350,110 L360,108 L380,106 L400,116 L420,118 L430,124 L446,156 L456,158 L462,156 L452,170 L444,184 L440,200 L436,216 L430,230 L424,236 L416,246 L400,250 L396,244 L390,234 L386,220 L384,204 L386,190 L378,172 L368,168 L356,170 L344,170 L334,164 Z"/>
+      <path d="M440,44 L450,44 L470,40 L490,40 L510,36 L540,30 L580,32 L620,36 L660,40 L700,48 L716,50 L700,60 L684,64 L676,76 L660,90 L644,96 L636,104 L630,112 L620,114 L614,110 L604,104 L600,116 L596,124 L584,136 L576,144 L570,160 L560,164 L556,156 L550,148 L544,140 L536,136 L530,142 L520,150 L514,164 L510,156 L504,140 L496,134 L484,130 L476,128 L470,128 L464,124 L456,120 L448,122 L444,108 L440,100 L440,80 L440,60 Z"/>
+      <path d="M586,224 L604,208 L624,204 L644,202 L660,220 L666,234 L660,250 L640,256 L620,244 L604,248 L590,250 L586,240 Z"/>
+    </g>
+    <g font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle">
+      <circle cx="422" cy="80" r="10" fill="#c8102e"/><text x="422" y="84" fill="#fff">2</text>
+      <circle cx="421" cy="106" r="10" fill="#c8102e"/><text x="421" y="110" fill="#fff">1</text>
+      <circle cx="440" cy="137" r="10" fill="#c8102e"/><text x="440" y="141" fill="#fff">3</text>
+      <circle cx="461" cy="128" r="10" fill="#c8102e"/><text x="461" y="132" fill="#fff">4</text>
+      <circle cx="429" cy="117" r="10" fill="#c8102e"/><text x="429" y="121" fill="#fff">5</text>
+      <circle cx="572" cy="192" r="10" fill="#c8102e"/><text x="572" y="196" fill="#fff">6</text>
+      <circle cx="408" cy="60" r="10" fill="#c8102e"/><text x="408" y="64" fill="#fff">8</text>
+      <circle cx="588" cy="135" r="10" fill="#c8102e"/><text x="588" y="139" fill="#fff">10</text>
+      <circle cx="516" cy="138" r="10" fill="#c8102e"/><text x="516" y="142" fill="#fff">11</text>
+      <circle cx="548" cy="132" r="10" fill="#c8102e"/><text x="548" y="136" fill="#fff">19</text>
+      <circle cx="210" cy="202" r="10" fill="#c8102e"/><text x="210" y="206" fill="#fff">20</text>
+      <circle cx="372" cy="170" r="10" fill="#c8102e"/><text x="372" y="174" fill="#fff">21</text>
+      <circle cx="206" cy="102" r="10" fill="#c8102e"/><text x="206" y="106" fill="#fff">22</text>
+      <circle cx="264" cy="212" r="10" fill="#c8102e"/><text x="264" y="216" fill="#fff">23</text>
+    </g>
+  </svg>
+  <div class="pins"><b>1</b> Antalya &middot; <b>2</b> Kyiv &middot; <b>3</b> Mecca &middot; <b>4</b> Bahrain &middot; <b>5</b> Gaza &middot; <b>6</b> Cikande &middot; <b>8</b> Gulf of Finland<br><b>10</b> Hong Kong &middot; <b>11</b> India &middot; <b>19</b> Manipur &middot; <b>20</b> Peru &middot; <b>21</b> Nigeria &middot; <b>22</b> Washington &middot; <b>23</b> Bras&iacute;lia</div>
+</div>
+<!-- DATE CHECK -->
+<div class="datecheck"><b>DATE CHECK &mdash; NOT SUNDAY, SO NOT DRAWN AS SUNDAY NEWS:</b> England rugby 37&ndash;12 (Sat) &middot; Wembanyama 50 (Sat night) &middot; Belgium strike (Mon) &middot; BepiColombo (Sat) &middot; Gaza aid-van (Sat) &middot; FBI breach (Fri) &middot; Hormuz tankers (Sat) &middot; El Chapo Isidro capture (Fri) &middot; Nvidia SEC probe (Fri)</div>
+<!-- FOOTER -->
+<div class="foot"><span>Sources: Reuters &middot; AP &middot; BBC &middot; Al Jazeera &middot; The Guardian &middot; SCMP &middot; ESPNcricinfo &middot; INDECI &middot; Finnish Border Guard &middot; NEMA &middot; Vatican News &middot; formula1.com</span><span>All stories dated Sunday 22 November 2026 &middot; CONFIRMED = 2+ sources &middot; REPORTED = announced &middot; CLAIM = unconfirmed</span></div>
+</body></html>
